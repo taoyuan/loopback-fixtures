@@ -1,45 +1,31 @@
 {
-  "name": "loopback-fixtures",
+  "name": "loopback-seeder",
   "description": "Expressive fixtures generator for Loopback",
   "version": "0.0.11",
   "dependencies": {
-    "async": "^2.0.0-rc.6",
-    "bluebird": "^3.4.1",
-    "coffee-script": "^1.10.0",
-    "faker": "^3.1.0",
-    "lodash": "^4.13.1",
-    "loopback": "^2.29.0",
-    "merge": "^1.2.0",
-    "optimist": "^0.6.1",
+    "bluebird": "^3.5.0",
+    "debug": "^2.6.6",
+    "faker": "^4.1.0",
+    "lodash": "^4.17.4",
+    "loopback": "^3.7.0",
     "path": "^0.12.7",
-    "run-sequence": "^1.2.1",
-    "yamljs": "^0.2.7"
+    "traverse": "^0.6.6",
+    "yamljs": "^0.2.10"
   },
   "scripts": {
-    "pretest": "gulp build",
-    "test": "COFFEECOV_INIT_ALL=false NODE_ENV=test gulp test",
-    "prepublish": "gulp build",
-    "watch": "gulp watch"
+    "test": "NODE_ENV=test mocha test/**/*.test.js"
   },
   "publishConfig": {
     "registry": "http://registry.npmjs.org"
   },
-  "main": "lib/index.js",
-  "author": "Samy Ghribi <ghribi.samy@gmail.com>",
+  "main": "index.js",
+  "author": "Yuan Tao <towyuan@outlook.com>",
   "license": "ISC",
   "devDependencies": {
     "chai": "^3.5.0",
-    "gulp": "^3.9.1",
-    "gulp-clean": "^0.3.2",
-    "gulp-coffee": "^2.3.2",
-    "gulp-coffeelint": "^0.6.0",
-    "gulp-concat": "^2.6.0",
-    "gulp-mocha": "^2.2.0",
-    "gulp-plug": "^0.2.4",
-    "gulp-plumber": "^1.1.0",
-    "mocha": "^2.3.2",
-    "sinon": "^1.17.4",
-    "sinon-chai": "^2.8.0"
+    "mocha": "^3.3.0",
+    "sinon": "^2.1.0",
+    "sinon-chai": "^2.9.0"
   },
   "repository": {
     "type": "git",

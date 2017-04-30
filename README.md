@@ -1,31 +1,35 @@
-# loopback-fixtures
+# loopback-seeder
 
 Expressive fixtures generator for Loopback
 
-[![build status](https://secure.travis-ci.org/sghribi/loopback-fixtures.svg)](http://travis-ci.org/sghribi/loopback-fixtures)
-[![dependency status](https://david-dm.org/sghribi/loopback-fixtures.svg)](https://david-dm.org/sghribi/loopback-fixtures)
+[![build status](https://secure.travis-ci.org/taoyuan/loopback-seeder.svg)](http://travis-ci.org/taoyuan/loopback-seeder)
+[![dependency status](https://david-dm.org/taoyuan/loopback-seeder.svg)](https://david-dm.org/taoyuan/loopback-seeder)
 
 ## Installation
 
 ### Basic usage
 
+``` bash
+npm install --save loopback-seeder
 ```
-npm install --save loopback-fixtures
+
+``` bash
+yarn add loopback-seeder
 ```
 
 Then, in your `server/component-config.json`, add :
 
 ``` json
 {
-  "loopback-fixtures": {
-    "fixturePath": "/fixtures/data/",
-    "append": false,
+  "loopback-seeder": {
+    "dir": "server/seeds",
+    "migrate": false,
     "autoLoad": false
   }
 }
 ```
 
-Write your YML fixture file `/fixture/data/data.yml` (adapt according your model) :
+Write your YML fixture file `server/seeds/data.yml` (relative to process.cwd() and adapt according your model) :
 
 
 ``` yaml
@@ -48,36 +52,30 @@ User:
 
  - With the server:
 
-    `app.loadFixtures()` (return a promise)
+    `app.seed()` (return a promise)
 
     e.g:
 
     ``` js
-    app.loadFixtures()
-    .then(function() {
-      console.log('Done!');
-    })
-    .catch(function(err) {
-      console.log('Errors:', err);
-    });
-    ```
-
- - With a node command:
-
-    ```
-    ./node_modules/loopback-fixtures/lib/load-fixtures.js
+    app.seed()
+      .then(function() {
+        console.log('Done!');
+      })
+      .catch(function(err) {
+        console.log('Errors:', err);
+      });
     ```
 
 ### Configuration options
 
- - `fixturePath` (default value `'/fixtures/data'`)
+ - `dir` (default value `'server/seeds'` relative to process.cwd(), or provide a absolute path)
 
-    The directory to load data fixtures from
+    The directory to seed from
 
- - `append` (default value `false`)
+ - `migrate` (default value `false`)
 
-    If set to `true`, data fixtures will be append instead of deleting all data from the database first.
-    **WARNING** `false` will erase your database
+    If set to `false`, data fixtures will be append instead of deleting all data from the database first.
+    **WARNING** `true` will erase your database
 
  - `autoLoad` (default value `false`)
 
@@ -140,6 +138,7 @@ User:
 
 
 ## Credits
+[Yuan Tao](https://github.com/taoyuan)
 [Samy Ghribi](https://github.com/sghribi)
 
 ## License
