@@ -1,7 +1,19 @@
 {
   "name": "loopback-seeder",
   "description": "Expressive fixtures generator for Loopback",
-  "version": "0.0.11",
+  "version": "0.1.0",
+  "main": "index.js",
+  "author": "Yuan Tao <towyuan@outlook.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/taoyuan/loopback-seeder.git"
+  },
+  "scripts": {
+    "test": "NODE_ENV=test mocha test/**/*.test.js"
+  },
+  "publishConfig": {
+    "registry": "http://registry.npmjs.org"
+  },
   "dependencies": {
     "bluebird": "^3.5.0",
     "debug": "^2.6.6",
@@ -12,23 +24,11 @@
     "traverse": "^0.6.6",
     "yamljs": "^0.2.10"
   },
-  "scripts": {
-    "test": "NODE_ENV=test mocha test/**/*.test.js"
-  },
-  "publishConfig": {
-    "registry": "http://registry.npmjs.org"
-  },
-  "main": "index.js",
-  "author": "Yuan Tao <towyuan@outlook.com>",
-  "license": "ISC",
   "devDependencies": {
     "chai": "^3.5.0",
     "mocha": "^3.3.0",
     "sinon": "^2.1.0",
     "sinon-chai": "^2.9.0"
   },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:sghribi/loopback-fixtures.git"
-  }
+  "license": "ISC"
 }
