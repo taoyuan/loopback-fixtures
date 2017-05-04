@@ -1,7 +1,7 @@
 {
   "name": "loopback-seeder",
   "description": "Expressive fixtures generator for Loopback",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "main": "index.js",
   "author": "Yuan Tao <towyuan@outlook.com>",
   "repository": {
