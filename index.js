@@ -1,7 +1,6 @@
 'use strict';
 
 const path = require('path');
-const PromiseA = require('bluebird');
 const seeder = require('./lib/seeder');
 
 exports = module.exports = function (app, options) {
@@ -12,12 +11,11 @@ exports = module.exports = function (app, options) {
 
   const seed = app.seed = opts => {
     opts = Object.assign({}, options, opts);
-    return PromiseA.try(() => {
-      if (opts.migrate) {
-        console.log('Clear Database');
-        return seeder.clearDatabase(opts.models);
-      }
-    }).then(() => seeder.seed(opts));
+    return (new Promise((resolve, reject) => {
+      if (!opts.migrate) return resolve();
+      console.log('Clear Database');
+      seeder.clearDatabase(opts.models).then(resolve).catch(reject);
+    })).then(() => seeder.seed(opts));
   };
 
   if (options.autoLoad) {
