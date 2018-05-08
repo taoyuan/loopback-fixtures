@@ -11,7 +11,7 @@ exports = module.exports = function (app, options) {
   }, options);
 
   const seed = app.seed = opts => {
-    opts = Object.assign({}, options, opts);
+    opts = Object.assign({}, options, opts, { models: app.models });
     return PromiseA.try(() => {
       if (opts.migrate) {
         console.log('Clear Database');
